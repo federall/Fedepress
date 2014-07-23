@@ -10,6 +10,20 @@ function register_menu() {
 }
 add_action( 'init', 'register_menu' );
 
+// Ajout de la sidebar principale.
+
+function fedepress_sidebar() {
+  register_sidebar( [
+    'id'            => 'sidebar',
+    'name'          => __( 'Barre latérale', 'fedepress' ),
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '<h1>',
+    'after_title'   => '</h1>'
+  ] );
+}
+add_action( 'widgets_init', 'fedepress_sidebar' );
+
 // Supprime les merdes de WPML.
 
 define( 'ICL_DONT_LOAD_NAVIGATION_CSS', true );
