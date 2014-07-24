@@ -34,11 +34,6 @@ function fedepress_styles_scripts() {
   // Ajout du CSS.
 
   wp_enqueue_style( 'fedepress-css', get_stylesheet_uri() );
-
-  // Ajout du dernier jQuery.
-
-  wp_deregister_script( 'jquery' );
-  wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', [], '', true );
 }
 add_action( 'wp_enqueue_scripts', 'fedepress_styles_scripts' );
 ?>
