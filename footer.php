@@ -1,3 +1,5 @@
+</div><!-- /.site-content -->
+
 <?php get_sidebar(); ?>
 
 </div><!-- /.site -->
