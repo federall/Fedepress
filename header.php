@@ -34,59 +34,14 @@
       <?php if ( get_bloginfo( 'description' ) ) : ?>
         <h2><?php bloginfo( 'description' ); ?></h2>
       <?php endif; ?>
-    </div>
+    </div><!-- /.site-brand -->
 
     <nav class="site-nav">
-      <?php
-      $menu_slug = 'header';
-      $nav_menu_locations = get_nav_menu_locations();
+      <?php wp_nav_menu( [
 
-      if ( array_key_exists( 'header', $nav_menu_locations ) ) {
-        $menu = wp_get_nav_menu_object( $nav_menu_locations[$menu_slug] );
+      ] ); ?>
+    </nav><!-- /.site-nav -->
 
-        $menu_items = wp_get_nav_menu_items( $menu->term_id );
-
-        $page_id = get_the_ID();
-
-        echo '<ul class="site-nav-menu">';
-
-        foreach ( $menu_items as $key => $menu_item ) {
-          if ( !$menu_item->menu_item_parent ) {
-            $menu_sub_items = [];
-            foreach ( $menu_items as $key_2 => $menu_item_2 ) {
-              if ( $menu_item_2->menu_item_parent == $menu_item->ID ) {
-                array_push( $menu_sub_items, $menu_item_2 );
-              }
-            }
-
-            if ( count( $menu_sub_items ) ) {
-              echo '<li class="site-nav-item parent">';
-              echo '<a href="#">' . $menu_item->title . '</a>';
-            }
-            else {
-              echo '<li class="site-nav-item">';
-              echo '<a href="' . $menu_item->url . '">' . $menu_item->title . '</a>';
-            }
-
-            if ( count( $menu_sub_items ) ) {
-              echo '<ul class="site-nav-sub-menu">';
-
-              foreach ( $menu_sub_items as $menu_sub_item ) {
-                echo '<li class="site-nav-sub-item"><a href="' . $menu_sub_item->url . '">' . $menu_sub_item->title . '</a></li>';
-              }
-
-              echo '</ul>';
-            }
-
-            echo '</li>';
-          }
-        }
-
-        echo '</ul>';
-      }
-      ?>
-    </nav>
-
-  </header>
+  </header><!-- /.site-header -->
 
   <div class="site-content">
